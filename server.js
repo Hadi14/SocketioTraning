@@ -22,5 +22,10 @@ io.on("connection", (socket) => {
     socket.on("disconnect", () => {
         console.log("User Disconnected");
     })
+
+    socket.on("sendmsg", (clientMsg) => {
+        console.log(clientMsg);
+        socket.broadcast.emit("recivedMsg",clientMsg);
+    })
 })
 
