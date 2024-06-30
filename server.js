@@ -16,6 +16,11 @@ app.get("/", (rec, res) => {
     res.sendFile(__dirname + "/index.html");
 })
 
-io.on("connection",(socket)=>{
-console.log("Client conncet to Server");
+io.on("connection", (socket) => {
+    console.log("Client conncet to Server");
+
+    socket.on("disconnect", () => {
+        console.log("User Disconnected");
+    })
 })
+
